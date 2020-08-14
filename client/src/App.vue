@@ -1,24 +1,21 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>Header</el-header>
-      <el-main>
-        <navigation />
-      </el-main>
-    </el-container>
+    <h1>Routing Example</h1>
+    <p>
+      <router-link to="/">main</router-link>
+      <router-link to="/about">about</router-link>
+    </p>
+
+    <router-view></router-view>
   </div>
 </template>
-
 <script>
-import navigation from "./components/Navigation.vue";
-
 export default {
-  name: "App",
-  components: {
-    navigation,
-  },
+  name: "Home",
+  components: {},
 };
 </script>
 
 <style>
 </style>
+
