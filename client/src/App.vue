@@ -1,21 +1,42 @@
 <template>
   <div id="app">
-    <h1>Routing Example</h1>
-    <p>
-      <router-link to="/">main</router-link>
-      <router-link to="/about">about</router-link>
-    </p>
-
-    <router-view></router-view>
+    <el-container :style="{height:'100vh'}">
+      <el-aside>
+        <navigation />
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </div>
 </template>
 <script>
+import navigation from "./components/Navigation";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    navigation
+  }
 };
 </script>
 
-<style>
+<style >
+body{
+  margin:0px;
+  padding:0px;
+}
+
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 200px;
+  }
+
+
+@media (max-width: 900px) {
+ aside.el-aside{
+    width: 100px!important;
+  }
+}
+
 </style>
 
