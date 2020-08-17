@@ -4,25 +4,27 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
+const bookRoute = require('./routes/book.route')
 /*
-const getTask = require('./routes/posts')
 const addTask = require('./routes/create')
 const delTask = require('./routes/delete.js')
 */
-app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
 
 app.use(cors())
+app.use('/api', bookRoute)
 
 
 
-if (process.env.NODE_ENV === 'production') {
+
     app.use(express.static(__dirname + '/public/'))
     app.get(/.*/, (req, res) => res.sendFile(__dirname+'/public/index.html'))
-}
+
 
 const PORT = process.env.PORT || 3000
 let PASS = process.env.MONGO_DB_PASS
