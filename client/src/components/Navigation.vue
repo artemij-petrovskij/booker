@@ -11,9 +11,9 @@
       <span>Все книги</span>
     </el-menu-item>
 
-    <el-menu-item index="/about">
-      <i class="el-icon-document"></i>
-      <span>Создать</span>
+    <el-menu-item index="/add">
+      <i class="el-icon-circle-plus-outline"></i>
+      <span>Добавить</span>
     </el-menu-item>
 <!--
     <el-menu-item index="/list">
@@ -53,10 +53,10 @@ export default {
   methods: {
     updateWidth() {
       this.width = window.innerWidth;
-      if(this.width <=1000){
+      if(this.width <=900){
         this.isCollapse = true
       }
-            if(this.width >=1000){
+            if(this.width >=900){
         this.isCollapse = false
       }
 
