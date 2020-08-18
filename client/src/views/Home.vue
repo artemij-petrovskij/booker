@@ -25,7 +25,7 @@ export default {
     };
   },
   async created() {
-    this.books = await Book.get();
+    this.books = await Book.getAllBooks();
   },
 };
 </script>
