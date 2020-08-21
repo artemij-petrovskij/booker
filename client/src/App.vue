@@ -15,28 +15,29 @@ import navigation from "./components/Navigation";
 export default {
   name: "Home",
   components: {
-    navigation
-  }
+    navigation,
+  },
 };
 </script>
 
 <style >
-body{
-  margin:0px;
-  padding:0px;
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 200px;
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 200px;
+}
+  aside.el-aside {
+    width: 220px !important;
   }
-
 
 @media (max-width: 900px) {
- aside.el-aside{
-    width: 100px!important;
+  aside.el-aside {
+    width: 100px !important;
   }
 }
-
 </style>
 

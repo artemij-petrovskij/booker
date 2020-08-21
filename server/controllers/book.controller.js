@@ -8,9 +8,11 @@ module.exports.getAllCollection = async (req, res) => {
 
 module.exports.addNewBook = async (req, res) => {
   try {
+    console.log()
     await Book.create({
-        title: req.body.label,
-        author: req.body.text,
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre,
         img: req.body.img
     })
     res.status(201).send()
