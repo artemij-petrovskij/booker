@@ -7,6 +7,10 @@
     :default-active="$route.path"
   >
     <el-menu-item index="/">
+      <i class="el-icon-s-home"></i>
+      <span>Домой</span>
+    </el-menu-item>
+    <el-menu-item index="/books">
       <i class="el-icon-notebook-2"></i>
       <span>Все книги</span>
     </el-menu-item>
@@ -15,7 +19,7 @@
       <i class="el-icon-circle-plus-outline"></i>
       <span>Добавить</span>
     </el-menu-item>
-<!--
+    <!--
     <el-menu-item index="/list">
       <i class="el-icon-document"></i>
       <span>Посты</span>
@@ -32,7 +36,6 @@
     </el-menu-item>
     -->
   </el-menu>
-
 </template>
 
 <style scoped>
@@ -53,14 +56,13 @@ export default {
   methods: {
     updateWidth() {
       this.width = window.innerWidth;
-      if(this.width <=900){
-        this.isCollapse = true
+      if (this.width <= 900) {
+        this.isCollapse = true;
       }
-            if(this.width >=900){
-        this.isCollapse = false
+      if (this.width >= 900) {
+        this.isCollapse = false;
       }
-
-    }
+    },
   },
   mounted() {
     window.addEventListener("resize", this.updateWidth);

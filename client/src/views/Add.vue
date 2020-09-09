@@ -5,7 +5,7 @@
       :model="controls"
       :rules="rules"
       ref="controls"
-      label-width="95px"
+      label-width="100px"
       label-position="left "
     >
       <el-form-item label="Название" prop="title">
@@ -62,6 +62,8 @@ export default {
       rules: {
         title: [
           {
+            min: 1,
+            max: 40,
             required: true,
             message: "Пожалуйста введите название",
             trigger: "change",
@@ -75,6 +77,8 @@ export default {
         ],
         author: [
           {
+            min: 1,
+            max: 40,
             required: true,
             message: "Пожалуйста введите автора",
             trigger: "change",
@@ -121,15 +125,15 @@ h1 {
 }
 form.el-form {
   max-width: 600px !important;
-      display: block;
-    margin-left: auto;
-    margin-right: auto
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .el-button,
 .el-select {
   width: 100%;
 }
-.add {
-
+.el-form-item {
+  padding: 10px;
 }
 </style>

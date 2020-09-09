@@ -19,9 +19,11 @@ export default {
   },
 };
 </script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap");
 
-<style >
 body {
+  font-family: "Manrope", sans-serif;
   margin: 0px;
   padding: 0px;
 }
@@ -30,9 +32,9 @@ body {
   width: 200px;
   min-height: 200px;
 }
-  aside.el-aside {
-    width: 220px !important;
-  }
+aside.el-aside {
+  width: 202px !important;
+}
 
 @media (max-width: 900px) {
   aside.el-aside {
