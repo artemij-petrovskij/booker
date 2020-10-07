@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
-const url = 'api'
+const url = 'http://localhost:3000/api'
 class Book {
+
   static getAllBooks = async () => {
     try {
       const res = await fetch(`${url}/books`);
@@ -21,6 +22,22 @@ class Book {
           body: JSON.stringify(body),
           headers: { 'Content-Type': 'application/json' },
         });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  static showBookToEdit = async (body) => {
+    try {
+      const query = await fetch(`${url}/single`,
+        {
+          method: 'post',
+          body: JSON.stringify(body),
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        const responseJSON = await query.json();
+        return responseJSON
     } catch (err) {
       console.error(err);
     }

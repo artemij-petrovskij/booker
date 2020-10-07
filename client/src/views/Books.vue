@@ -7,8 +7,8 @@
         <div style="padding: 14px;">
           <span>{{book.title}}</span>
           <div class="bottom clearfix">
-            <div class="author">{{book.author}}</div>
-            <el-button type="text" class="button">Operating</el-button>
+            <div class="author">{{book.author}}</div>          
+              <router-link router :to="{ name: 'Book', params: { id: book._id }}">777</router-link>
           </div>
         </div>
       </el-card>
@@ -36,7 +36,8 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-.el-card,h1{
+.el-card,
+h1 {
   width: 240px;
   margin: 10px;
 }

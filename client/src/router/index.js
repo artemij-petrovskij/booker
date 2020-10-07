@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Books from '../views/Books.vue'
 import Add from '../views/Add.vue'
+import Book from '../views/Book.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
     path: '/add',
     name: 'About',
     component: Add
+  },
+  {
+    path: '/book/:id',
+    name: 'Book',
+    component: Book
   }
 ]
 

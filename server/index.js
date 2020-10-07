@@ -6,10 +6,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const bookRoute = require('./routes/book.route')
-/*
-const addTask = require('./routes/create')
-const delTask = require('./routes/delete.js')
-*/
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -19,12 +16,8 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use('/api', bookRoute)
 
-
-
-
-    app.use(express.static(__dirname + '/public/'))
-    app.get(/.*/, (req, res) => res.sendFile(__dirname+'/public/index.html'))
-
+app.use(express.static(__dirname + '/public/'))
+app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
 
 const PORT = process.env.PORT || 3000
 let PASS = process.env.MONGO_DB_PASS
@@ -42,7 +35,7 @@ async function start() {
             useFindAndModify: false,
             useCreateIndex: true
         })
-
+            console.log(`MongoDB connect!`)
         app.listen(PORT, () => {
             console.log(`Server start on port ${PORT}`)
         })
