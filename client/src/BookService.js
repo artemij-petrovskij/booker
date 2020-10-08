@@ -27,7 +27,7 @@ class Book {
     }
   }
 
-  static showBookToEdit = async (body) => {
+  static showSingleBook = async (body) => {
     try {
       const query = await fetch(`${url}/single`,
         {
@@ -36,13 +36,28 @@ class Book {
           headers: { 'Content-Type': 'application/json' },
         });
 
-        const responseJSON = await query.json();
-        return responseJSON
+      const responseJSON = await query.json();
+      return responseJSON
     } catch (err) {
       console.error(err);
     }
   }
 
+  static edititem = async (body) => {
+    try {
+      const query = await fetch(`${url}/edit`,
+        {
+          method: 'post',
+          body: JSON.stringify(body),
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+      const responseJSON = await query.json();
+      return responseJSON
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
 }
 

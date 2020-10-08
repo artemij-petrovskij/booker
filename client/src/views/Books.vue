@@ -3,13 +3,26 @@
     <h1>Все книги</h1>
     <div class="books">
       <el-card v-for="book in books" :key="book._id">
-        <el-image style="width: 200px; height: 300px;" :src="book.img" fit="cover"></el-image>
-        <div style="padding: 14px;">
-          <span>{{book.title}}</span>
+        <el-image
+          style="width: 200px; height: 300px"
+          :src="book.img"
+          fit="cover"
+        ></el-image>
+        <div style="padding: 14px">
           <div class="bottom clearfix">
-            <div class="author">{{book.author}}</div>          
-              <router-link router :to="{ name: 'Book', params: { id: book._id }}">777</router-link>
+            <div class="title">{{ book.title }}</div>
+
+            <div class="author">{{ book.author }}</div>
           </div>
+
+          <router-link router :to="{ name: 'Edit', params: { id: book._id } }">
+            <el-button
+              type="info"
+              icon="el-icon-edit"
+              round
+              size="mini"
+            ></el-button>
+          </router-link>
         </div>
       </el-card>
     </div>
@@ -41,5 +54,17 @@ h1 {
   width: 240px;
   margin: 10px;
 }
+.title,
+.author {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.el-button-group {
+  padding-top: 20px;
+}
 </style>
+
+
 

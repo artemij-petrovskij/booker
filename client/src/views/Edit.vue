@@ -1,7 +1,6 @@
 <template>
   <div class="add">
     <h1>Редактировать</h1>
-    <p>{{ this.$route.params }}</p>
     <el-form
       :model="controls"
       :rules="rules"
@@ -30,7 +29,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('controls')"
-          >Добавить</el-button
+          >Редактировать</el-button
         >
       </el-form-item>
     </el-form>
@@ -43,6 +42,7 @@ export default {
   data() {
     return {
       controls: {
+        id: "",
         title: "",
         author: "",
         genre: "",
@@ -95,29 +95,36 @@ export default {
     };
   },
   async created() {
-    await Book.showBookToEdit(this.$route.params);
+    const response = await Book.showSingleBook(this.$route.params);
+    const {_id, title, author, genre, img} = response[0]
+    this.controls.id = _id
+    this.controls.title = title
+    this.controls.author = author
+    this.controls.genre = genre
+    this.controls.img = img
   },
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.addBook();
+          this.editBook();
         } else {
           return false;
         }
       });
     },
-    async addBook() {
+    async editBook() {
       let data = {
+        id: this.controls.id,
         title: this.controls.title,
         author: this.controls.author,
         genre: this.controls.genre,
         img: this.controls.img,
       };
-      await Book.addNewBook(data);
+      await Book.edititem(data);
 
       this.$message({
-        message: "Поздравляю, книга добавлена на полку!",
+        message: "Поздравляю, книга успешна изменена!",
         type: "success",
       });
     },
