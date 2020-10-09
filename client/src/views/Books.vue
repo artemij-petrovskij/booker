@@ -15,14 +15,28 @@
             <div class="author">{{ book.author }}</div>
           </div>
 
-          <router-link router :to="{ name: 'Edit', params: { id: book._id } }">
-            <el-button
-              type="info"
-              icon="el-icon-edit"
-              round
-              size="mini"
-            ></el-button>
-          </router-link>
+          <el-button-group>
+            <router-link
+              router
+              :to="{ name: 'Book', params: { id: book._id } }"
+            >
+              <el-button
+                icon="el-icon-view"
+                size="small"
+                type="primary"
+              ></el-button>
+            </router-link>
+            <router-link
+              router
+              :to="{ name: 'Edit', params: { id: book._id } }"
+            >
+              <el-button
+                icon="el-icon-edit"
+                size="small"
+                type="primary"
+              ></el-button>
+            </router-link>
+          </el-button-group>
         </div>
       </el-card>
     </div>
@@ -49,11 +63,15 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-.el-card,
 h1 {
-  width: 240px;
   margin: 10px;
 }
+.el-card {
+  margin: 12px;
+  width: 240px;
+  height: 460px;
+}
+
 .title,
 .author {
   display: -webkit-box;
@@ -63,6 +81,13 @@ h1 {
 }
 .el-button-group {
   padding-top: 20px;
+}
+.title{
+  font-size:17px;
+}
+.author{
+    font-size:15px;
+  opacity: 0.7;
 }
 </style>
 
