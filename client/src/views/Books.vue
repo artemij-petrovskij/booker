@@ -20,22 +20,17 @@
               router
               :to="{ name: 'Book', params: { id: book._id } }"
             >
-              <el-button
-                icon="el-icon-view"
-                size="small"
-                type="primary"
-              ></el-button>
+              <el-button icon="el-icon-view" size="small"></el-button>
             </router-link>
             <router-link
               router
               :to="{ name: 'Edit', params: { id: book._id } }"
             >
-              <el-button
-                icon="el-icon-edit"
-                size="small"
-                type="primary"
-              ></el-button>
+              <el-button icon="el-icon-edit" size="small"></el-button>
             </router-link>
+            
+              <el-button @click="deleteOne({id: book._id})" icon="el-icon-delete" size="small"></el-button>
+           
           </el-button-group>
         </div>
       </el-card>
@@ -53,6 +48,11 @@ export default {
   },
   async created() {
     this.books = await Book.getAllBooks();
+  },
+  methods: {
+    deleteOne(item) {
+      console.log(item)
+    },
   },
 };
 </script>
@@ -82,11 +82,11 @@ h1 {
 .el-button-group {
   padding-top: 20px;
 }
-.title{
-  font-size:17px;
+.title {
+  font-size: 17px;
 }
-.author{
-    font-size:15px;
+.author {
+  font-size: 15px;
   opacity: 0.7;
 }
 </style>

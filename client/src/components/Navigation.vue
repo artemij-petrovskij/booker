@@ -8,7 +8,7 @@
   >
     <el-menu-item index="/">
       <i class="el-icon-s-home"></i>
-      <span>Домой</span>
+      <span class="home">Booker</span>
     </el-menu-item>
     <el-submenu index="1">
       <template slot="title">
@@ -33,12 +33,12 @@
       </template>
 
       <el-menu-item index="1">
-        <i class="el-icon-notebook-2"></i>
-        <span>Все книги</span>
+        <i class="el-icon-aim"></i>
+        <span>Все игры</span>
       </el-menu-item>
       <el-menu-item index="2">
         <i class="el-icon-circle-plus-outline"></i>
-        <span>Добавить книги</span>
+        <span>Добавить игры</span>
       </el-menu-item>
     </el-submenu>
 
@@ -50,6 +50,9 @@
 body {
   margin: 0px;
   padding: 0px;
+}
+.home{
+  font-size: 18px;
 }
 </style>
 
