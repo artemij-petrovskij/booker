@@ -45,3 +45,17 @@ module.exports.editSingleItem = async (req, res) => {
   }
 }
 
+module.exports.deleteSingleItem = async (req, res) => {
+  try {
+    console.log(req.body.id)
+   // const single = await Book.deleteOne({ _id: req.body.id })
+   
+
+    res.status(201).send()
+  }
+  catch (e) {
+    console.log(e)
+  }
+}
+
+

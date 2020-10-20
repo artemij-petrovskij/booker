@@ -43,7 +43,7 @@ class Book {
     }
   }
 
-  static edititem = async (body) => {
+  static editItem = async (body) => {
     try {
       const query = await fetch(`${url}/edit`,
         {
@@ -54,6 +54,25 @@ class Book {
 
       const responseJSON = await query.json();
       return responseJSON
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  static deleteItem = async (body) => {
+    try {
+      const response = await fetch(`${url}/delete`,
+        {
+          method: 'post',
+          body: JSON.stringify(body),
+          headers: { 'Content-Type': 'application/json' },
+        });
+      if (response.status === 201) {
+        return response
+      } else {
+        return { err: 'Server error' }
+      }
+
     } catch (err) {
       console.error(err);
     }

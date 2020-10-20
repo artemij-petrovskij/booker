@@ -28,9 +28,12 @@
             >
               <el-button icon="el-icon-edit" size="small"></el-button>
             </router-link>
-            
-              <el-button @click="deleteOne({id: book._id})" icon="el-icon-delete" size="small"></el-button>
-           
+
+            <el-button
+              @click="deleteOne({ id: book._id })"
+              icon="el-icon-delete"
+              size="small"
+            ></el-button>
           </el-button-group>
         </div>
       </el-card>
@@ -50,8 +53,20 @@ export default {
     this.books = await Book.getAllBooks();
   },
   methods: {
-    deleteOne(item) {
-      console.log(item)
+    async deleteOne(item) {
+      const response = await Book.deleteItem(item);
+      if (!response.err) {
+        this.$message({
+          showClose: true,
+          message: "Книга успешно удалена!",
+          type: "success",
+        });
+      } else {
+        this.$message({
+          message: response.err,
+          type: "warning",
+        });
+      }
     },
   },
 };

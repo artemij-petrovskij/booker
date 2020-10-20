@@ -121,7 +121,7 @@ export default {
         genre: this.controls.genre,
         img: this.controls.img,
       };
-      await Book.edititem(data);
+      await Book.editItem(data);
 
       this.$message({
         message: "Поздравляю, книга успешна изменена!",
