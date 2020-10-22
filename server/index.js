@@ -14,10 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(cors())
-app.use('/api', bookRoute)
 
 app.use(express.static(__dirname + '/public/'))
 app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+
+app.use('/api', bookRoute)
+
+
 
 const PORT = process.env.PORT || 3000
 let PASS = process.env.MONGO_DB_PASS
