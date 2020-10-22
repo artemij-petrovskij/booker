@@ -1,10 +1,10 @@
 const fetch = require('node-fetch')
-const url = 'api'
+//const url = 'api'
 class Book {
 
   static getAllBooks = async () => {
     try {
-      const res = await fetch(`${url}/books`);
+      const res = await fetch(`api/books`);
 
       let data = await res.json();
       return data
@@ -16,7 +16,7 @@ class Book {
 
   static addNewBook = async (body) => {
     try {
-      await fetch(`${url}/add`,
+      await fetch(`api/add`,
         {
           method: 'post',
           body: JSON.stringify(body),
@@ -29,7 +29,7 @@ class Book {
 
   static showSingleBook = async (body) => {
     try {
-      const query = await fetch(`${url}/single`,
+      const query = await fetch(`api/single`,
         {
           method: 'post',
           body: JSON.stringify(body),
@@ -45,7 +45,7 @@ class Book {
 
   static editItem = async (body) => {
     try {
-      const query = await fetch(`${url}/edit`,
+      const query = await fetch(`api/edit`,
         {
           method: 'post',
           body: JSON.stringify(body),
@@ -61,7 +61,7 @@ class Book {
 
   static deleteItem = async (body) => {
     try {
-      const response = await fetch(`${url}/delete`,
+      const response = await fetch(`api/delete`,
         {
           method: 'post',
           body: JSON.stringify(body),
