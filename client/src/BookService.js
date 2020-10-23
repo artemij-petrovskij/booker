@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-const url = 'api'
+const url = '/api'
 class Book {
 
   static getAllBooks = async () => {
