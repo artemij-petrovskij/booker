@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>Booker</h1>
+
+
+
   </div>
 </template>
 
@@ -11,5 +14,6 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="css" scoped>
+
 </style>

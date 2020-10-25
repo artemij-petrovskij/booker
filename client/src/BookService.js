@@ -45,15 +45,18 @@ class Book {
 
   static editItem = async (body) => {
     try {
-      const query = await fetch(`${url}/edit`,
+      const response = await fetch(`${url}/edit`,
         {
           method: 'post',
           body: JSON.stringify(body),
           headers: { 'Content-Type': 'application/json' },
         });
 
-      const responseJSON = await query.json();
-      return responseJSON
+        if (response.status === 201) {
+          return response
+        } else {
+          return { err: 'Server error' }
+        }
     } catch (err) {
       console.error(err);
     }

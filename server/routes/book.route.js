@@ -1,10 +1,10 @@
 const { Router } = require('express')
 const router = Router()
-const { getAllCollection, addNewBook, showSingleItem, editSingleItem, deleteSingleItem} = require('../controllers/book.controller')
+const { getAllCollection, addNewItem, showSingleItem, editSingleItem, deleteSingleItem} = require('../controllers/book.controller')
 
 router.get('/books', getAllCollection)
 
-router.post('/add', addNewBook)
+router.post('/add', addNewItem)
 
 router.post('/single', showSingleItem)
 

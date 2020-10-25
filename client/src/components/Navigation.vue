@@ -26,22 +26,6 @@
       </el-menu-item>
     </el-submenu>
 
-    <el-submenu index="7">
-      <template slot="title">
-        <i class="el-icon-monitor"></i>
-        <span>Игры</span>
-      </template>
-
-      <el-menu-item index="1">
-        <i class="el-icon-aim"></i>
-        <span>Все игры</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-circle-plus-outline"></i>
-        <span>Добавить игры</span>
-      </el-menu-item>
-    </el-submenu>
-
 
   </el-menu>
 </template>

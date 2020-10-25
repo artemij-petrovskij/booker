@@ -29,11 +29,18 @@
               <el-button icon="el-icon-edit" size="small"></el-button>
             </router-link>
 
-            <el-button
-              @click="deleteOne({ id: book._id })"
-              icon="el-icon-delete"
-              size="small"
-            ></el-button>
+            <el-popconfirm
+              confirmButtonText="Да"
+              cancelButtonText="Нет, Спасибо"
+              title="Вы действительно хотите удалить?"
+              @onConfirm="deleteOne({ id: book._id })"
+            >
+              <el-button
+                icon="el-icon-delete"
+                size="small"
+                slot="reference"
+              ></el-button>
+            </el-popconfirm>
           </el-button-group>
         </div>
       </el-card>
@@ -54,6 +61,8 @@ export default {
   },
   methods: {
     async deleteOne(item) {
+      console.log(item);
+
       const response = await Book.deleteItem(item);
       if (!response.err) {
         this.$message({
@@ -61,6 +70,7 @@ export default {
           message: "Книга успешно удалена!",
           type: "success",
         });
+        this.books = await Book.getAllBooks();
       } else {
         this.$message({
           message: response.err,

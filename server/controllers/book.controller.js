@@ -5,9 +5,8 @@ module.exports.getAllCollection = async (req, res) => {
   res.status(200).json(AllCollection)
 }
 
-module.exports.addNewBook = async (req, res) => {
+module.exports.addNewItem = async (req, res) => {
   try {
-    console.log()
     await Book.create({
       title: req.body.title,
       author: req.body.author,
@@ -29,7 +28,6 @@ module.exports.showSingleItem = async (req, res) => {
 
 module.exports.editSingleItem = async (req, res) => {
   try {
-    console.log(req.body.id)
     const single = await Book.findOneAndUpdate({ _id: req.body.id }, {
       title: req.body.title,
       author: req.body.author,
@@ -48,9 +46,7 @@ module.exports.editSingleItem = async (req, res) => {
 module.exports.deleteSingleItem = async (req, res) => {
   try {
     console.log(req.body.id)
-   // const single = await Book.deleteOne({ _id: req.body.id })
-   
-
+    await Book.deleteOne({ _id: req.body.id })
     res.status(201).send()
   }
   catch (e) {
