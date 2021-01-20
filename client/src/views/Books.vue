@@ -30,6 +30,7 @@
             </router-link>
 
             <el-popconfirm
+              disabled
               confirmButtonText="Да"
               cancelButtonText="Нет, Спасибо"
               title="Вы действительно хотите удалить?"
@@ -61,7 +62,6 @@ export default {
   },
   methods: {
     async deleteOne(item) {
-      console.log(item);
 
       const response = await Book.deleteItem(item);
       if (!response.err) {
