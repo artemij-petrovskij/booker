@@ -1,51 +1,64 @@
 <template>
-  <div class="books">
+  <div class="main">
     <h1>Все книги</h1>
-    <div class="books">
-      <el-card v-for="book in books" :key="book._id">
-        <el-image
-          style="width: 200px; height: 300px"
-          :src="book.img"
-          fit="cover"
-        ></el-image>
-        <div style="padding: 14px">
-          <div class="bottom clearfix">
-            <div class="title">{{ book.title }}</div>
+    <el-tabs type="border-card">
+      <el-tab-pane label="Таблица"
+        ><span slot="label"> <i class="el-icon-s-grid"></i> Таблица </span>
+        <div class="books">
+          <el-card v-for="book in books" :key="book._id">
+            <el-image
+              style="width: 200px; height: 300px"
+              :src="book.img"
+              fit="cover"
+            ></el-image>
+            <div style="padding: 14px">
+              <div class="bottom clearfix">
+                <div class="title">{{ book.title }}</div>
 
-            <div class="author">{{ book.author }}</div>
-          </div>
+                <div class="author">{{ book.author }}</div>
+              </div>
 
-          <el-button-group>
-            <router-link
-              router
-              :to="{ name: 'Book', params: { id: book._id } }"
-            >
-              <el-button icon="el-icon-view" size="small"></el-button>
-            </router-link>
-            <router-link
-              router
-              :to="{ name: 'Edit', params: { id: book._id } }"
-            >
-              <el-button icon="el-icon-edit" size="small"></el-button>
-            </router-link>
+              <el-button-group>
+                <router-link
+                  router
+                  :to="{ name: 'Book', params: { id: book._id } }"
+                >
+                  <el-button icon="el-icon-view" size="small"></el-button>
+                </router-link>
+                <router-link
+                  router
+                  :to="{ name: 'Edit', params: { id: book._id } }"
+                >
+                  <el-button icon="el-icon-edit" size="small"></el-button>
+                </router-link>
 
-            <el-popconfirm
-              disabled
-              confirmButtonText="Да"
-              cancelButtonText="Нет, Спасибо"
-              title="Вы действительно хотите удалить?"
-              @onConfirm="deleteOne({ id: book._id })"
-            >
-              <el-button
-                icon="el-icon-delete"
-                size="small"
-                slot="reference"
-              ></el-button>
-            </el-popconfirm>
-          </el-button-group>
+                <el-popconfirm
+                  disabled
+                  confirmButtonText="Да"
+                  cancelButtonText="Нет, Спасибо"
+                  title="Вы действительно хотите удалить?"
+                  @onConfirm="deleteOne({ id: book._id })"
+                >
+                  <el-button
+                    icon="el-icon-delete"
+                    size="small"
+                    slot="reference"
+                  ></el-button>
+                </el-popconfirm>
+              </el-button-group>
+            </div>
+          </el-card>
         </div>
-      </el-card>
-    </div>
+      </el-tab-pane>
+      <el-tab-pane label="Список">
+        <span slot="label"> <i class="el-icon-s-order"></i> Список </span>
+        <el-table :data="books" style="width: 100%">
+          <el-table-column prop="title" label="Название"> </el-table-column>
+          <el-table-column prop="author" label="Автор"> </el-table-column>
+          <el-table-column prop="genre" label="Жанр"> </el-table-column>
+        </el-table>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
@@ -62,7 +75,6 @@ export default {
   },
   methods: {
     async deleteOne(item) {
-
       const response = await Book.deleteItem(item);
       if (!response.err) {
         this.$message({

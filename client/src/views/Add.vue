@@ -28,7 +28,9 @@
         <el-input v-model.trim="controls.img"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('controls')">Добавить</el-button>
+        <el-button type="primary" @click="submitForm('controls')"
+          >Добавить</el-button
+        >
       </el-form-item>
     </el-form>
   </div>
@@ -46,16 +48,24 @@ export default {
         img: "",
         options: [
           {
-            value: "Фантастика",
-            label: "Фантастика",
-          },
-          {
-            value: "Научная литература",
-            label: "Научная литература",
-          },
-          {
             value: "Художественная литература",
             label: "Художественная литература",
+          },
+          {
+            value: "Техническая литература",
+            label: "Техническая литература",
+          },
+          {
+            value: "Научная или научно-популярная литература",
+            label: "Научная или научно-популярная литература",
+          },
+          {
+            value: "Документальная  литература",
+            label: "Документальная  литература",
+          },
+          {
+            value: "Литература по психологии и саморазвитию",
+            label: "Литература по психологии и саморазвитию",
           },
         ],
       },
